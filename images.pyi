@@ -1,19 +1,16 @@
+from typing import Iterator
+import numpy
+
+from .image import Image
+
 class Images:
-    def new_from_file(self, path: str) -> Images:
+    def new_from_file(self, path: str) -> Image:
         ...
-    def width(self) -> int:
+    def new_external(self, name: str) -> Image:
         ...
-    def height(self) -> int:
+    def new_from_data(self, name: str, py_array3: numpy.ndarray) -> Image:
         ...
-    def is_external(self) -> bool:
+    def __iter__(self) -> Iterator[Image]:
         ...
-    def is_embedded(self) -> bool:
-        ...
-    def embed(self, path: str):
-        ...
-    def save(self, path: str):
-        ...
-    def __iter__(self):
-        ...
-    def __next__(self):
+    def __next__(self) -> Image:
         ...

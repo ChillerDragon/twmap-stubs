@@ -1,31 +1,18 @@
-from typing import Optional
-import numpy
-
-from .quads import Quads
+from typing import Iterator
+from .layer import Layer
 
 class Layers:
-    tiles: numpy.ndarray
-    image: Optional[int]
-    quads: Quads
-    def new_quads(self) -> Layers:
+    def new_quads(self) -> Layer:
         ...
-    def new_sounds(self) -> Layers:
+    def new_sounds(self) -> Layer:
         ...
-    def new_tiles(self, width: int, height: int) -> Layers:
+    def new_tiles(self, width: int, height: int) -> Layer:
         ...
-    def new_game(self, width: int, height: int) -> Layers:
+    def new_game(self, width: int, height: int) -> Layer:
         ...
-    def new_physics(self, kind: str) -> Layers:
+    def new_physics(self, kind: str) -> Layer:
         ...
-    def width(self) -> int:
+    def __iter__(self) -> Iterator[Layer]:
         ...
-    def height(self) -> int:
-        ...
-    def kind(self) -> str:
-        ...
-    def to_mesh(self) -> tuple:
-        ...
-    def __iter__(self):
-        ...
-    def __next__(self):
+    def __next__(self) -> Layer:
         ...

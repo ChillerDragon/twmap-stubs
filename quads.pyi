@@ -1,18 +1,10 @@
-from typing import Optional
-
+from typing import Iterator
+from .quad import Quad
 
 class Quads:
-    position: tuple
-    corners: list
-    colors: list
-    texture_coords: list
-    position_env: Optional[int]
-    position_env_offset: int
-    color_env: Optional[int]
-    color_env_offset: int
-    def new(self, pos_x: float, pos_y: float, width: float, height: float) -> Quads:
+    def new(self, pos_x: float, pos_y: float, width: float, height: float) -> Quad:
         ...
-    def __iter__(self):
+    def __iter__(self) -> Iterator[Quad]:
         ...
-    def __next__(self):
+    def __next__(self) -> Quad:
         ...

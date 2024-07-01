@@ -1,8 +1,8 @@
 from typing import Literal, Optional
 from .groups import Groups
-from .layer import Layer
 from .images import Images
 from .envelopes import Envelopes
+from .layers import Layers
 
 class Info:
     author: str
@@ -35,15 +35,15 @@ class Map:
         ...
     def physics_group(self) -> Optional[Groups]:
         ...
-    def game_layer(self) -> Optional[Layer]:
+    def game_layer(self) -> Optional[Layers]:
         ...
-    def front_layer(self) -> Optional[Layer]:
+    def front_layer(self) -> Optional[Layers]:
         ...
-    def tele_layer(self) -> Optional[Layer]:
+    def tele_layer(self) -> Optional[Layers]:
         ...
-    def speedup_layer(self) -> Optional[Layer]:
+    def speedup_layer(self) -> Optional[Layers]:
         ...
-    def switch_layer(self) -> Optional[Layer]:
+    def switch_layer(self) -> Optional[Layers]:
         ...
-    def tune_layer(self) -> Optional[Layer]:
+    def tune_layer(self) -> Optional[Layers]:
         ...

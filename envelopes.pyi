@@ -1,29 +1,15 @@
-from typing import Literal
+from typing import Iterator, Literal
 
-type EnvelopesKind = Literal['Position', 'Color', 'Sound']
+from .envelope import Envelope
 
-class EnvPoints:
-    time: int
-    curve: Literal['Step', 'Linear', 'Slow', 'Fast', 'Smooth', 'Bezier']
-    x: float
-    a: float
-    def new(self, pos: int) -> EnvPoints:
-        ...
-    def __iter__(self):
-        ...
-    def __next__(self):
-        ...
+EnvelopesKind = Literal['Position', 'Color', 'Sound']
 
 class Envelopes:
-    name: str
-    points: EnvPoints
+    def new(self, kind: EnvelopesKind) -> Envelope:
+        ...
     def __len__(self) -> int:
         ...
-    def kind(self) -> EnvelopesKind:
+    def __iter__(self) -> Iterator[Envelope]:
         ...
-    def new(self, kind: EnvelopesKind) -> Envelopes:
-        ...
-    def __iter__(self):
-        ...
-    def __next__(self):
+    def __next__(self) -> Envelope:
         ...

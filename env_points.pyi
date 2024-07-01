@@ -1,0 +1,10 @@
+from typing import Iterator
+from .env_point import EnvPoint
+
+class EnvPoints:
+    def new(self, time: int) -> EnvPoint:
+        ...
+    def __iter__(self) -> Iterator[EnvPoint]:
+        ...
+    def __next__(self) -> EnvPoint:
+        ...
